@@ -42,7 +42,9 @@ namespace EnGarde
 
 		void RightFrameDoubleTapped (object sender, MR.Gestures.TapEventArgs e)
 		{
-			rightScore--;
+			if (rightScore != 0) {
+				rightScore--;
+			}
 			rightScoreText.Opacity = 0.5;
 			rightScoreText.Text = string.Format ("{0}", rightScore);
 			rightScoreText.FadeTo (1);
@@ -58,7 +60,9 @@ namespace EnGarde
 
 		void LeftFrameDoubleTapped (object sender, MR.Gestures.TapEventArgs e)
 		{
-			leftScore--;
+			if (leftScore != 0) {
+				leftScore--;
+			}
 			leftScoreText.Opacity = 0.5;
 			leftScoreText.Text = string.Format ("{0}", leftScore);
 			leftScoreText.FadeTo (1);
