@@ -111,6 +111,7 @@
 					</Grid.ColumnDefinitions>
 					<Label
 						Text="Left"
+						x:Name="leftLabel"
 						FontSize="Small"
 						Grid.Row="0"
 						Grid.Column="0"

@@ -48,6 +48,8 @@ namespace EnGarde
 			currentPeriod = 1;
 			timeLabel.Text = "3:00";
 			periodLabel.Text = "Period 1";
+			leftLabel.TextColor = Color.White;
+			leftScoreText.TextColor = Color.White;
 			rightLabel.TextColor = Color.White;
 			rightScoreText.TextColor = Color.White;
 			leftScoreText.Text = string.Format ("{0}", leftScore);
@@ -67,6 +69,8 @@ namespace EnGarde
 				}
 				if (value == 0) {
 					leftFrame.BackgroundColor = Color.FromHex ("#FF0000");
+					leftScoreText.TextColor = Color.Black;
+					leftLabel.TextColor = Color.Black;
 					await DisplayAlert ("Priority Assigned", "Priority Left", "ok");
 				} else {
 					rightFrame.BackgroundColor = Color.Lime;
