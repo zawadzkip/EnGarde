@@ -13,14 +13,13 @@ namespace EnGarde
 		private uint currentPeriod = 1;
 		private TimeSpan time;
 		private bool shouldTimerBeRunning = false;
-
 		//TODO Volume button to start/stop time.
 		//TODO timepicker select for min and seconds.
 
 		public EnGardePage ()
 		{
 			InitializeComponent ();
-			time = new TimeSpan (0, 3, 0);
+			time = new TimeSpan (0, 0, 5);
 			startStopButton.Clicked += TimeButtonPressed;
 			rightFrame.Tapped += RightFramePressed;
 			rightFrame.DoubleTapped += RightFrameDoubleTapped;
@@ -49,6 +48,8 @@ namespace EnGarde
 			currentPeriod = 1;
 			timeLabel.Text = "3:00";
 			periodLabel.Text = "Period 1";
+			rightLabel.TextColor = Color.White;
+			rightScoreText.TextColor = Color.White;
 			leftScoreText.Text = string.Format ("{0}", leftScore);
 			rightScoreText.Text = string.Format ("{0}", rightScore);
 		}
@@ -69,6 +70,8 @@ namespace EnGarde
 					await DisplayAlert ("Priority Assigned", "Priority Left", "ok");
 				} else {
 					rightFrame.BackgroundColor = Color.Lime;
+					rightScoreText.TextColor = Color.Black;
+					rightLabel.TextColor = Color.Black;
 					await DisplayAlert ("Priority Assigned", "Priority Right", "ok");
 				}
 
@@ -111,14 +114,7 @@ namespace EnGarde
 								currentPeriod++;
 							}
 							periodLabel.Text = string.Format ("Period {0}", currentPeriod);
-							//three 250 ms vibrations
-							Task.Run (() => {
-								CrossVibrate.Current.Vibration (250);
-								Task.Delay (100);
-								CrossVibrate.Current.Vibration (250);
-								Task.Delay (100);
-								CrossVibrate.Current.Vibration (250);
-							});
+							CrossVibrate.Current.Vibration (1000);
 							DisplayAlert ("Timer Stopped", "The time has expired", "Ok");
 							return false;
 						}
@@ -138,7 +134,6 @@ namespace EnGarde
 		void RightFramePressed (object arg1, System.EventArgs arg2)
 		{
 			rightScore++;
-			//TODO Animate color change to lime and back to transparent
 			rightScoreText.Opacity = 0.5;
 			rightScoreText.Text = string.Format ("{0}", rightScore);
 			rightScoreText.FadeTo (1);
@@ -149,8 +144,6 @@ namespace EnGarde
 			if (rightScore != 0) {
 				rightScore--;
 			}
-			//TODO Animate color change to lime and back to transparent
-
 			rightScoreText.Opacity = 0.5;
 			rightScoreText.Text = string.Format ("{0}", rightScore);
 			rightScoreText.FadeTo (1);
@@ -159,7 +152,6 @@ namespace EnGarde
 		void LeftFramePressed (object arg1, System.EventArgs arg2)
 		{
 			leftScore++;
-			//TODO Animate color change to Red and back to transparent
 			leftScoreText.Opacity = 0.5;
 			leftScoreText.Text = string.Format ("{0}", leftScore);
 			leftScoreText.FadeTo (1);
@@ -170,7 +162,6 @@ namespace EnGarde
 			if (leftScore != 0) {
 				leftScore--;
 			}
-			//TODO Animate color change to Red and back to transparent
 			leftScoreText.Opacity = 0.5;
 			leftScoreText.Text = string.Format ("{0}", leftScore);
 			leftScoreText.FadeTo (1);

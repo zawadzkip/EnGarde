@@ -164,6 +164,7 @@
 						Grid.Row="0"
 						Grid.Column="0"
 						TextColor="White"
+						x:Name="rightLabel"
 						VerticalOptions="Center"
 						HorizontalOptions="CenterAndExpand">
 					</Label>
