@@ -48,10 +48,7 @@ namespace EnGarde
 			currentPeriod = 1;
 			timeLabel.Text = "3:00";
 			periodLabel.Text = "Period 1";
-			leftLabel.TextColor = Color.White;
-			leftScoreText.TextColor = Color.White;
-			rightLabel.TextColor = Color.White;
-			rightScoreText.TextColor = Color.White;
+			ResetLabelColors ();
 			leftScoreText.Text = string.Format ("{0}", leftScore);
 			rightScoreText.Text = string.Format ("{0}", rightScore);
 		}
@@ -60,12 +57,13 @@ namespace EnGarde
 		{
 			var r = new Random ();
 			var value = r.Next (0, 2);
+			ResetLabelColors ();
 			Device.BeginInvokeOnMainThread (async () => {
 				leftFrame.BackgroundColor = Color.Transparent;
 				rightFrame.BackgroundColor = Color.Transparent;
 				for (var i = 0; i < 5; i++) {
-					await FadeLeftFrameColor ();
-					await FadeRightFrameColor ();
+					await FlashLeftFrameColor ();
+					await FlashRightFrameColor ();
 				}
 				if (value == 0) {
 					leftFrame.BackgroundColor = Color.FromHex ("#FF0000");
@@ -83,14 +81,14 @@ namespace EnGarde
 
 		}
 
-		async Task FadeLeftFrameColor ()
+		async Task FlashLeftFrameColor ()
 		{
 			leftFrame.BackgroundColor = Color.FromHex ("#FF0000");
 			await Task.Delay (200);
 			leftFrame.BackgroundColor = Color.Transparent;
 
 		}
-		async Task FadeRightFrameColor ()
+		async Task FlashRightFrameColor ()
 		{
 			rightFrame.BackgroundColor = Color.Lime;
 			await Task.Delay (200);
@@ -169,6 +167,14 @@ namespace EnGarde
 			leftScoreText.Opacity = 0.5;
 			leftScoreText.Text = string.Format ("{0}", leftScore);
 			leftScoreText.FadeTo (1);
+		}
+
+		private void ResetLabelColors ()
+		{
+			leftLabel.TextColor = Color.White;
+			leftScoreText.TextColor = Color.White;
+			rightLabel.TextColor = Color.White;
+			rightScoreText.TextColor = Color.White;
 		}
 	}
 }
