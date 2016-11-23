@@ -7,12 +7,15 @@ namespace EnGarde
 		public TimeSelectPage (MR.Gestures.Label TimeLabel, TimeSpan time)
 		{
 			InitializeComponent ();
-			timePicker.Time = time;
-			timePicker.Format = "m\\:ss";
-			timePicker.Unfocused += async (sender, e) => {
-				TimeLabel.Text = time.ToString ("m\\:ss");
-				await Navigation.PopModalAsync (true);
-			};
+			minuteEntry.Text = string.Format ("{0}", time.Minutes);
+			secondEntry.Text = string.Format ("{0}", time.Seconds);
+			currentTime.Text = string.Format ("Current Time: {0}", time.ToString ("m\\:ss"));
+			updateTimeButton.Clicked += UpdateTimePressed;
+		}
+
+		void UpdateTimePressed (object sender, EventArgs e)
+		{
+			Navigation.PopModalAsync (true);
 		}
 	}
 }

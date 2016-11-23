@@ -7,8 +7,16 @@ namespace EnGarde
 		public App ()
 		{
 			InitializeComponent ();
+			var carouselPage = new CarouselPage {
+				BackgroundColor = Color.Gray,
+			};
+			var engardePage = new EnGardePage ();
+			carouselPage.Children.Add (new RulebookPage ());
+			carouselPage.Children.Add (engardePage);
+			carouselPage.Children.Add (new CardRulesPage ());
+			carouselPage.CurrentPage = engardePage;
 
-			MainPage = new EnGardePage ();
+			MainPage = carouselPage;
 		}
 
 		protected override void OnStart ()

@@ -5,29 +5,64 @@
 	x:Class="EnGarde.TimeSelectPage"
 	xmlns:mr="clr-namespace:MR.Gestures;assembly=MR.Gestures"
 	BackgroundColor="Gray">
-	<StackLayout
-		HorizontalOptions="CenterAndExpand"
-		VerticalOptions="CenterAndExpand">
-		<Label
-			Text="Select New Time"
-			FontSize="Large"
-			FontAttributes="Bold"
+	<Frame
+		BackgroundColor="Transparent"
+		OutlineColor="White">
+		<StackLayout
 			HorizontalOptions="CenterAndExpand"
-			VerticalOptions="CenterAndExpand"
-			TextColor="White">
-		</Label>
-		<Label
-			x:Name="currentTime"
-			FontSize="Medium"
-			HorizontalOptions="CenterAndExpand"
-			VerticalOptions="CenterAndExpand"
-			TextColor="White">
-		</Label>
-		<mr:TimePicker
-			x:Name="timePicker"
-			HorizontalOptions="CenterAndExpand"
-			VerticalOptions="CenterAndExpand"
-			TextColor="White">
-		</mr:TimePicker>
-	</StackLayout>
+			VerticalOptions="StartAndExpand">
+			<Label
+				Text="Select New Time"
+				FontSize="Large"
+				FontAttributes="Bold"
+				HorizontalOptions="CenterAndExpand"
+				VerticalOptions="StartAndExpand"
+				TextColor="White">
+			</Label>
+			<Label
+				x:Name="currentTime"
+				FontSize="Medium"
+				HorizontalOptions="CenterAndExpand"
+				VerticalOptions="CenterAndExpand"
+				TextColor="White">
+			</Label>
+			<StackLayout
+				Padding="5, 10, 5, 10"
+				Spacing="5"
+				Orientation="Horizontal">
+				<Entry
+					Keyboard="Numeric"
+					x:Name="minuteEntry"
+					HorizontalOptions="Center">
+				</Entry>
+				<Label
+					Text="Min"
+					TextColor="White"
+					HorizontalOptions="Center"
+					VerticalOptions="End">
+				</Label>
+				<Entry
+					Keyboard="Numeric"
+					x:Name="secondEntry"
+					HorizontalOptions="Center">
+				</Entry>
+				<Label
+					Text="Sec"
+					TextColor="White"
+					HorizontalOptions="Center"
+					VerticalOptions="End">
+				</Label>
+			</StackLayout>
+			<Button
+				x:Name="updateTimeButton"
+				Text="Update Time"
+				BackgroundColor="Transparent"
+				TextColor="White"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="EndAndExpand"
+				BorderWidth="1"
+				BorderColor="White">
+			</Button>
+		</StackLayout>
+	</Frame>
 </ContentPage>

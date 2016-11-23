@@ -19,15 +19,18 @@ namespace EnGarde
 		public EnGardePage ()
 		{
 			InitializeComponent ();
-			time = new TimeSpan (0, 0, 5);
+			time = new TimeSpan (0, 3, 0);
 			startStopButton.Clicked += TimeButtonPressed;
 			rightFrame.Tapped += RightFramePressed;
 			rightFrame.DoubleTapped += RightFrameDoubleTapped;
+			rightFrame.LongPressed += RightFrameLongPressed;
 			leftFrame.Tapped += LeftFramePressed;
+			leftFrame.DoubleTapped += LeftFrameDoubleTapped;
+			leftFrame.LongPressed += LeftFrameLongPressed;
 			priorityButton.Clicked += PriorityButtonPressed;
 			resetButton.Clicked += ResetButtonPressed;
-			leftFrame.DoubleTapped += LeftFrameDoubleTapped;
 			timeLabel.LongPressed += TimeLabelLongPressed;
+
 		}
 
 		void TimeLabelLongPressed (object arg1, EventArgs arg2)
@@ -75,6 +78,10 @@ namespace EnGarde
 					rightScoreText.TextColor = Color.Black;
 					rightLabel.TextColor = Color.Black;
 					await DisplayAlert ("Priority Assigned", "Priority Right", "ok");
+				}
+				if (Device.OS == TargetPlatform.Android) {
+					leftFrame.OutlineColor = Color.FromHex ("#FF0000");
+					rightFrame.OutlineColor = Color.Lime;
 				}
 
 			});
@@ -151,6 +158,11 @@ namespace EnGarde
 			rightScoreText.FadeTo (1);
 		}
 
+		void RightFrameLongPressed (object sender, MR.Gestures.LongPressEventArgs e)
+		{
+			//TODO Show card view
+		}
+
 		void LeftFramePressed (object arg1, System.EventArgs arg2)
 		{
 			leftScore++;
@@ -167,6 +179,11 @@ namespace EnGarde
 			leftScoreText.Opacity = 0.5;
 			leftScoreText.Text = string.Format ("{0}", leftScore);
 			leftScoreText.FadeTo (1);
+		}
+
+		void LeftFrameLongPressed (object sender, MR.Gestures.LongPressEventArgs e)
+		{
+
 		}
 
 		private void ResetLabelColors ()
