@@ -15,7 +15,7 @@ namespace EnGarde.iOS
 			global::Xamarin.Forms.Forms.Init ();
 			MR.Gestures.iOS.Settings.LicenseKey = "6TYF-PUZS-LB5B-EDH4-DXGB-BADT-NESN-S8JZ-E8GA-FL5B-PVH8-3Q8Q-EXB6";
 			LoadApplication (new App ());
-
+			UIApplication.SharedApplication.IdleTimerDisabled = true;
 			return base.FinishedLaunching (app, options);
 		}
 	}

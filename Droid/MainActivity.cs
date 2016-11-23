@@ -7,6 +7,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Acr.UserDialogs;
 
 namespace EnGarde.Droid
 {
@@ -22,8 +23,8 @@ namespace EnGarde.Droid
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
 			MR.Gestures.Android.Settings.LicenseKey = "6TYF-PUZS-LB5B-EDH4-DXGB-BADT-NESN-S8JZ-E8GA-FL5B-PVH8-3Q8Q-EXB6";
-
-
+			UserDialogs.Init (this);
+			this.Window.SetFlags (WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
 			LoadApplication (new App ());
 		}
 	}

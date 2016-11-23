@@ -9,30 +9,74 @@
 	<StackLayout
 		VerticalOptions="FillAndExpand"
 		HorizontalOptions="FillAndExpand"
-		Padding="0, 20, 0, 0">
-		<StackLayout
-			x:Name="timePeriodLayout"
-			VerticalOptions="Center"
-			HorizontalOptions="FillAndExpand"
-			Padding="0, 0, 0, 20">
-			<Label
-				x:Name="timeLabel"
-				Text="3:00"
-				FontAttributes="Bold"
-				FontSize="60"
+		Padding="5, 20, 5, 5">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto">
+				</RowDefinition>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*">
+				</ColumnDefinition>
+				<ColumnDefinition
+					Width="Auto">
+				</ColumnDefinition>
+				<ColumnDefinition
+					Width="*">
+				</ColumnDefinition>
+			</Grid.ColumnDefinitions>
+			<Button
+				x:Name="priorityButton"
+				Grid.Row="0"
+				Grid.Column="0"
+				Text="Priority"
+				BackgroundColor="Transparent"
 				TextColor="White"
-				HorizontalOptions="CenterAndExpand"
-				VerticalOptions="Center">
-			</Label>
-			<Label
-				x:Name="periodLabel"
-				Text="Period 1"
-				FontSize="Small"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="CenterAndExpand"
+				BorderWidth="1"
+				BorderColor="White">
+			</Button>
+			<StackLayout
+				x:Name="timePeriodLayout"
+				VerticalOptions="Center"
+				HorizontalOptions="FillAndExpand"
+				Padding="0, 0, 0, 15"
+				Grid.Row="0"
+				Grid.Column="1">
+				<mr:Label
+					x:Name="timeLabel"
+					Text="3:00"
+					FontAttributes="Bold"
+					FontSize="60"
+					TextColor="White"
+					HorizontalOptions="CenterAndExpand"
+					VerticalOptions="Center">
+				</mr:Label>
+				<Label
+					x:Name="periodLabel"
+					Text="Period 1"
+					FontSize="Small"
+					TextColor="White"
+					HorizontalOptions="CenterAndExpand"
+					VerticalOptions="Center">
+				</Label>
+			</StackLayout>
+			<Button
+				x:Name="resetButton"
+				Grid.Row="0"
+				Grid.Column="2"
+				Text="Reset"
+				BackgroundColor="Transparent"
 				TextColor="White"
-				HorizontalOptions="CenterAndExpand"
-				VerticalOptions="Center">
-			</Label>
-		</StackLayout>
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="CenterAndExpand"
+				BorderWidth="1"
+				BorderColor="White">
+			</Button>
+		</Grid>
 		<StackLayout
 			Orientation="Horizontal"
 			HorizontalOptions="FillAndExpand"
