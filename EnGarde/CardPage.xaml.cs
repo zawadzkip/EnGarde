@@ -10,7 +10,8 @@ namespace EnGarde
 		public CardPage ()
 		{
 			InitializeComponent ();
-			//TODO Add Cards
+			//TODO Show ability to add cards for each fencer
+
 		}
 	}
 }

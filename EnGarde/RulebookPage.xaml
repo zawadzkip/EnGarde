@@ -3,7 +3,68 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="EnGarde.RulebookPage"
+	xmlns:local="clr-namespace:EnGarde;assembly=EnGarde"
 	BackgroundColor="Gray">
 	<ContentPage.Content>
+		<StackLayout>
+			<local:CustomWebView
+				x:Name="webView"
+				Uri="fencing_rules.pdf"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand">
+			</local:CustomWebView>
+			<Grid
+				HorizontalOptions="StartAndExpand"
+				VerticalOptions="End"
+				Padding="5,5,5,5">
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Height="Auto">
+					</RowDefinition>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="*">
+					</ColumnDefinition>
+					<ColumnDefinition
+						Width="Auto">
+					</ColumnDefinition>
+					<ColumnDefinition
+						Width="*">
+					</ColumnDefinition>
+				</Grid.ColumnDefinitions>
+				<Label
+					FontSize="Small"
+					HorizontalOptions="Start"
+					VerticalOptions="Center"
+					x:Name="lastUpdatedLabel"
+					TextColor="White"
+					Text="Last Updated:"
+					Grid.Row="0"
+					Grid.Column="0">
+				</Label>
+				<ActivityIndicator
+					x:Name="loadingIndicator"
+					IsVisible="false"
+					IsRunning="true"
+					Grid.Row="0"
+					Grid.Column="1"
+					HorizontalOptions="Center"
+					VerticalOptions="Center">
+				</ActivityIndicator>
+				<Button
+					x:Name="updateButton"
+					BackgroundColor="Transparent"
+					TextColor="White"
+					Text="Update Now"
+					BorderColor="White"
+					BorderWidth="1"
+					Grid.Row="0"
+					Grid.Column="2"
+					HorizontalOptions="End"
+					VerticalOptions="Center">
+				</Button>
+			</Grid>
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

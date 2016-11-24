@@ -13,5 +13,21 @@ namespace EnGarde
 		{
 			InitializeComponent ();
 		}
+		protected override async void OnAppearing ()
+		{
+			base.OnAppearing ();
+			if (!DependencyService.Get<ISaveAndLoad> ().CheckFile (WebService.PDF_FILE_NAME)) {
+				loadingIndicator.IsVisible = true;
+				updateButton.IsEnabled = false;
+				await WebService.DownloadRulesPDF ();
+				if (DependencyService.Get<ISaveAndLoad> ().CheckFile (WebService.PDF_FILE_NAME)) {
+					webView.Uri = WebService.PDF_FILE_NAME;
+					var lastUpdatedDate = DependencyService.Get<ISaveAndLoad> ().CheckFileCreationTime (WebService.PDF_FILE_NAME);
+					lastUpdatedLabel.Text = string.Format ("Last Updated: {0}", lastUpdatedDate.ToString ("yy-MMM-dd"));
+				}
+				loadingIndicator.IsVisible = false;
+				updateButton.IsEnabled = true;
+			}
+		}
 	}
 }

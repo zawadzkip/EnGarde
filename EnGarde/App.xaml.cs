@@ -13,7 +13,7 @@ namespace EnGarde
 			var engardePage = new EnGardePage ();
 			carouselPage.Children.Add (new RulebookPage ());
 			carouselPage.Children.Add (engardePage);
-			carouselPage.Children.Add (new CardRulesPage ());
+			carouselPage.Children.Add (new CardPage ());
 			carouselPage.CurrentPage = engardePage;
 
 			MainPage = carouselPage;

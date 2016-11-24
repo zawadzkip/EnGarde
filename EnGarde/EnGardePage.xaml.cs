@@ -23,10 +23,8 @@ namespace EnGarde
 			startStopButton.Clicked += TimeButtonPressed;
 			rightFrame.Tapped += RightFramePressed;
 			rightFrame.DoubleTapped += RightFrameDoubleTapped;
-			rightFrame.LongPressed += RightFrameLongPressed;
 			leftFrame.Tapped += LeftFramePressed;
 			leftFrame.DoubleTapped += LeftFrameDoubleTapped;
-			leftFrame.LongPressed += LeftFrameLongPressed;
 			priorityButton.Clicked += PriorityButtonPressed;
 			resetButton.Clicked += ResetButtonPressed;
 			timeLabel.LongPressed += TimeLabelLongPressed;
@@ -61,6 +59,7 @@ namespace EnGarde
 			var r = new Random ();
 			var value = r.Next (0, 2);
 			ResetLabelColors ();
+			priorityButton.IsEnabled = false;
 			Device.BeginInvokeOnMainThread (async () => {
 				leftFrame.BackgroundColor = Color.Transparent;
 				rightFrame.BackgroundColor = Color.Transparent;
@@ -83,8 +82,8 @@ namespace EnGarde
 					leftFrame.OutlineColor = Color.FromHex ("#FF0000");
 					rightFrame.OutlineColor = Color.Lime;
 				}
-
 			});
+			priorityButton.IsEnabled = true;
 
 		}
 
@@ -158,10 +157,6 @@ namespace EnGarde
 			rightScoreText.FadeTo (1);
 		}
 
-		void RightFrameLongPressed (object sender, MR.Gestures.LongPressEventArgs e)
-		{
-			//TODO Show card view
-		}
 
 		void LeftFramePressed (object arg1, System.EventArgs arg2)
 		{
@@ -179,11 +174,6 @@ namespace EnGarde
 			leftScoreText.Opacity = 0.5;
 			leftScoreText.Text = string.Format ("{0}", leftScore);
 			leftScoreText.FadeTo (1);
-		}
-
-		void LeftFrameLongPressed (object sender, MR.Gestures.LongPressEventArgs e)
-		{
-
 		}
 
 		private void ResetLabelColors ()

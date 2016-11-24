@@ -35,9 +35,6 @@
     <EmbeddedResource Include="CardPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="CardRulesPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="RulebookPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -56,12 +53,12 @@
     <Compile Include="CardPage.xaml.cs">
       <DependentUpon>CardPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CardRulesPage.xaml.cs">
-      <DependentUpon>CardRulesPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="RulebookPage.xaml.cs">
       <DependentUpon>RulebookPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\WebService.cs" />
+    <Compile Include="CustomViews\CustomWebView.cs" />
+    <Compile Include="Services\ISaveAndLoad.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MR.Gestures">
@@ -85,6 +82,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="CustomViews\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
