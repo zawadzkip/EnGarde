@@ -13,7 +13,7 @@
 				HorizontalOptions="FillAndExpand"
 				VerticalOptions="FillAndExpand">
 			</local:CustomWebView>
-			<Grid
+			<!--<Grid
 				HorizontalOptions="StartAndExpand"
 				VerticalOptions="End"
 				Padding="5,5,5,5">
@@ -64,7 +64,7 @@
 					HorizontalOptions="End"
 					VerticalOptions="Center">
 				</Button>
-			</Grid>
+			</Grid>-->
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
