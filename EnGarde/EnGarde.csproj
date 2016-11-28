@@ -59,6 +59,7 @@
     <Compile Include="Services\WebService.cs" />
     <Compile Include="CustomViews\CustomWebView.cs" />
     <Compile Include="Services\ISaveAndLoad.cs" />
+    <Compile Include="ImageButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MR.Gestures">

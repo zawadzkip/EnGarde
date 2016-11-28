@@ -15,6 +15,7 @@ namespace EnGarde
 		private bool shouldTimerBeRunning = false;
 		//TODO Volume button to start/stop time.
 		//TODO timepicker select for min and seconds.
+		//TODO Set rest period for 1 min and countdown automatically
 
 		public EnGardePage ()
 		{

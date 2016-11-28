@@ -4,6 +4,12 @@ namespace EnGarde
 {
 	public partial class App : Application
 	{
+		public static int leftYellowCount = 0;
+		public static int leftRedCount = 0;
+		public static int leftBlackCount = 0;
+		public static int rightYellowCount = 0;
+		public static int rightRedCount = 0;
+		public static int rightBlackCount = 0;
 		public App ()
 		{
 			InitializeComponent ();
