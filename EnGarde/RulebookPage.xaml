@@ -4,7 +4,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="EnGarde.RulebookPage"
 	xmlns:local="clr-namespace:EnGarde;assembly=EnGarde"
-	BackgroundColor="Gray">
+	BackgroundColor="#3498db">
 	<ContentPage.Content>
 		<StackLayout>
 			<local:CustomWebView

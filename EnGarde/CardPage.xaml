@@ -1,11 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="EnGarde.CardPage"
 	xmlns:local="clr-namespace:EnGarde;assembly=EnGarde"
 	xmlns:mr="clr-namespace:MR.Gestures;assembly=MR.Gestures"
-	BackgroundColor="Gray">
+	BackgroundColor="#3498db">
 	<ContentPage.Content>
 		<StackLayout
 			Padding="5,20,5,5">
@@ -55,7 +55,8 @@
 						Grid.Column="0"
 						x:Name="leftYellowFrame"
 						HorizontalOptions="CenterAndExpand"
-						VerticalOptions="CenterAndExpand">
+						VerticalOptions="CenterAndExpand"
+						Padding="5">
 						<StackLayout
 							Orientation="Horizontal">
 							<Image
@@ -77,7 +78,8 @@
 						Grid.Column="1"
 						x:Name="leftRedFrame"
 						HorizontalOptions="CenterAndExpand"
-						VerticalOptions="CenterAndExpand">
+						VerticalOptions="CenterAndExpand"
+						Padding="5">
 						<StackLayout
 							Orientation="Horizontal">
 							<Image
@@ -99,7 +101,8 @@
 						Grid.Column="2"
 						x:Name="leftBlackFrame"
 						HorizontalOptions="CenterAndExpand"
-						VerticalOptions="CenterAndExpand">
+						VerticalOptions="CenterAndExpand"
+						Padding="5">
 						<StackLayout
 							Orientation="Horizontal">
 							<Image
@@ -120,19 +123,20 @@
 				OutlineColor="Lime"
 				BackgroundColor="Transparent"
 				VerticalOptions="FillAndExpand"
-				HorizontalOptions="FillAndExpand">
+				HorizontalOptions="FillAndExpand"
+				HasShadow="false">
 				<Grid
 					VerticalOptions="CenterAndExpand"
 					HorizontalOptions="CenterAndExpand">
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition
-							Width="Auto">
+							Width="*">
 						</ColumnDefinition>
 						<ColumnDefinition
-							Width="Auto">
+							Width="*">
 						</ColumnDefinition>
 						<ColumnDefinition
-							Width="Auto">
+							Width="*">
 						</ColumnDefinition>
 					</Grid.ColumnDefinitions>
 					<Grid.RowDefinitions>
@@ -161,7 +165,8 @@
 						Grid.Column="0"
 						x:Name="rightYellowFrame"
 						HorizontalOptions="CenterAndExpand"
-						VerticalOptions="CenterAndExpand">
+						VerticalOptions="CenterAndExpand"
+						Padding="5">
 						<StackLayout
 							Orientation="Horizontal">
 							<Image
@@ -183,7 +188,8 @@
 						Grid.Column="1"
 						x:Name="rightRedFrame"
 						HorizontalOptions="CenterAndExpand"
-						VerticalOptions="CenterAndExpand">
+						VerticalOptions="CenterAndExpand"
+						Padding="5">
 						<StackLayout
 							Orientation="Horizontal">
 							<Image
@@ -205,7 +211,8 @@
 						Grid.Column="2"
 						HorizontalOptions="CenterAndExpand"
 						VerticalOptions="CenterAndExpand"
-						x:Name="rightBlackFrame">
+						x:Name="rightBlackFrame"
+						Padding="5">
 						<StackLayout
 							Orientation="Horizontal">
 							<Image

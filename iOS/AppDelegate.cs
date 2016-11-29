@@ -13,7 +13,7 @@ namespace EnGarde.iOS
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init ();
-			MR.Gestures.iOS.Settings.LicenseKey = "6TYF-PUZS-LB5B-EDH4-DXGB-BADT-NESN-S8JZ-E8GA-FL5B-PVH8-3Q8Q-EXB6";
+			MR.Gestures.iOS.Settings.LicenseKey = "STSH-AFTL-Z7DW-LBKD-Z5WT-G4W2-RABL-V8E9-PMYV-J6UU-2PGP-YTHX-V4HW";
 			LoadApplication (new App ());
 			UIApplication.SharedApplication.IdleTimerDisabled = true;
 			return base.FinishedLaunching (app, options);

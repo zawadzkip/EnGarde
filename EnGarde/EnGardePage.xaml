@@ -5,7 +5,7 @@
 	xmlns:local="clr-namespace:EnGarde"
 	xmlns:mr="clr-namespace:MR.Gestures;assembly=MR.Gestures"
 	x:Class="EnGarde.EnGardePage"
-	BackgroundColor="Gray">
+	BackgroundColor="#3498db">
 	<StackLayout
 		VerticalOptions="FillAndExpand"
 		HorizontalOptions="FillAndExpand"
@@ -187,7 +187,7 @@
 		<Button
 			x:Name="startStopButton"
 			Text="Start"
-			BackgroundColor="#3498db"
+			BackgroundColor="Gray"
 			TextColor="White"
 			HorizontalOptions="FillAndExpand"
 			VerticalOptions="FillAndExpand"

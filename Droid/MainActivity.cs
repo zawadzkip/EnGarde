@@ -21,7 +21,7 @@ namespace EnGarde.Droid
 			base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
-			MR.Gestures.Android.Settings.LicenseKey = "6TYF-PUZS-LB5B-EDH4-DXGB-BADT-NESN-S8JZ-E8GA-FL5B-PVH8-3Q8Q-EXB6";
+			MR.Gestures.Android.Settings.LicenseKey = "STSH-AFTL-Z7DW-LBKD-Z5WT-G4W2-RABL-V8E9-PMYV-J6UU-2PGP-YTHX-V4HW";
 			this.Window.SetFlags (WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
 			LoadApplication (new App ());
 		}

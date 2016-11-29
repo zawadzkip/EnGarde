@@ -4,10 +4,13 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="EnGarde.TimeSelectPage"
 	xmlns:mr="clr-namespace:MR.Gestures;assembly=MR.Gestures"
-	BackgroundColor="Gray">
+	BackgroundColor="#3498db">
 	<Frame
 		BackgroundColor="Transparent"
-		OutlineColor="White">
+		OutlineColor="White"
+		HasShadow="false"
+		HorizontalOptions="FillAndExpand"
+		VerticalOptions="FillAndExpand">
 		<StackLayout
 			HorizontalOptions="CenterAndExpand"
 			VerticalOptions="StartAndExpand">
@@ -29,22 +32,27 @@
 			<StackLayout
 				Padding="5, 10, 5, 10"
 				Spacing="5"
-				Orientation="Horizontal">
+				Orientation="Horizontal"
+				HorizontalOptions="CenterAndExpand">
 				<Entry
 					Keyboard="Numeric"
 					x:Name="minuteEntry"
-					HorizontalOptions="Center">
+					HorizontalOptions="Center"
+					MinimumWidthRequest="10"
+					Placeholder="00">
 				</Entry>
 				<Label
 					Text="Min"
 					TextColor="White"
-					HorizontalOptions="Center"
+					HorizontalOptions="CenterAndExpand"
 					VerticalOptions="End">
 				</Label>
 				<Entry
 					Keyboard="Numeric"
 					x:Name="secondEntry"
-					HorizontalOptions="Center">
+					HorizontalOptions="CenterAndExpand"
+					Placeholder="00"
+					MinimumWidthRequest="50">
 				</Entry>
 				<Label
 					Text="Sec"
