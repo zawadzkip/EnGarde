@@ -13,6 +13,7 @@ namespace EnGarde
 		private uint currentPeriod = 1;
 		private TimeSpan time;
 		private bool shouldTimerBeRunning = false;
+		private bool isRestPeriod = true;
 		//TODO Volume button to start/stop time.
 		//TODO Set rest period for 1 min and countdown automatically
 
@@ -53,6 +54,7 @@ namespace EnGarde
 			rightScore = 0;
 			time = new TimeSpan (0, 3, 0);
 			shouldTimerBeRunning = false;
+			isRestPeriod = true;
 			currentPeriod = 1;
 			timeLabel.Text = "3:00";
 			periodLabel.Text = "Period 1";
@@ -125,20 +127,28 @@ namespace EnGarde
 							return true;
 						} else {
 							shouldTimerBeRunning = false;
-							time = new TimeSpan (0, 3, 0);
-							timeLabel.Text = "3:00";
 							if (currentPeriod == 3) {
 								currentPeriod = 1;
 								periodLabel.Text = string.Format ("Period {0}", currentPeriod);
 								CrossVibrate.Current.Vibration (1000);
-								DisplayAlert ("Timer Stopped", "The time has expired", "Ok");
+								DisplayAlert ("Timer Stopped", "The time has expired, the bout has ended.", "Ok");
 							}
 							TimeButtonPressed (null, null);
 							if (currentPeriod < 3 && currentPeriod > 0) {
 								currentPeriod++;
-								periodLabel.Text = string.Format ("Period {0}", currentPeriod);
+								if (!isRestPeriod) {
+									time = new TimeSpan (0, 3, 0);
+									timeLabel.Text = "3:00";
+									periodLabel.Text = string.Format ("Period {0}", currentPeriod);
+									DisplayAlert ("Timer Stopped", "The rest period has expired.", "Ok");
+								} else {
+									time = new TimeSpan (0, 1, 0);
+									timeLabel.Text = "1:00";
+									periodLabel.Text = "Period: Rest";
+									DisplayAlert ("Timer Stopped", "The time has expired, rest period has been set.", "Ok");
+								}
+								isRestPeriod = !isRestPeriod;
 								CrossVibrate.Current.Vibration (1000);
-								DisplayAlert ("Timer Stopped", "The time has expired", "Ok");
 							}
 							return false;
 						}

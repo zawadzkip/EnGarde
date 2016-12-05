@@ -13,7 +13,7 @@
 		VerticalOptions="FillAndExpand">
 		<StackLayout
 			HorizontalOptions="CenterAndExpand"
-			VerticalOptions="StartAndExpand">
+			VerticalOptions="CenterAndExpand">
 			<Label
 				Text="Select New Time"
 				FontSize="Large"
@@ -61,6 +61,16 @@
 					VerticalOptions="End">
 				</Label>
 			</StackLayout>
+			<Button
+				x:Name="oneMinButton"
+				Text="Set 1:00"
+				BackgroundColor="Transparent"
+				TextColor="White"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="EndAndExpand"
+				BorderWidth="1"
+				BorderColor="White">
+			</Button>
 			<Button
 				x:Name="updateTimeButton"
 				Text="Update Time"

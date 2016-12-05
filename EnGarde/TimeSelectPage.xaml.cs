@@ -15,6 +15,7 @@ namespace EnGarde
 			secondEntry.Text = string.Format ("{0}", time.Seconds);
 			currentTime.Text = string.Format ("Current Time: {0}", time.ToString ("m\\:ss"));
 			updateTimeButton.Clicked += UpdateTimePressed;
+			oneMinButton.Clicked += OneMinButton_Clicked;
 		}
 
 		private void ResetText ()
@@ -22,6 +23,13 @@ namespace EnGarde
 			minuteEntry.Text = string.Format ("{0}", t.Minutes);
 			secondEntry.Text = string.Format ("{0}", t.Seconds);
 		}
+
+		void OneMinButton_Clicked (object sender, EventArgs e)
+		{
+			MessagingCenter.Send<TimeSelectPage, TimeSpan> (this, "TimeUpdate", new TimeSpan (0, 1, 0));
+			Navigation.PopModalAsync (true);
+		}
+
 		void UpdateTimePressed (object sender, EventArgs e)
 		{
 			try {
