@@ -57,7 +57,7 @@ namespace EnGarde
 		{
 			leftYellowCount++;
 			leftYellowLabel.Text = string.Format ("{0}", leftYellowCount);
-			await FlashFrameColor ((Frame)sender, true);
+			await FlashFrameColor ((Frame)sender, Color.Yellow);
 		}
 		async Task LeftYellowFrameDoubleTapped (object sender, MR.Gestures.TapEventArgs e)
 		{
@@ -65,14 +65,14 @@ namespace EnGarde
 				leftYellowCount--;
 			}
 			leftYellowLabel.Text = string.Format ("{0}", leftYellowCount);
-			await FlashFrameColor ((Frame)sender, true);
+			await FlashFrameColor ((Frame)sender, Color.Yellow, false);
 		}
 
 		async Task LeftRedFrame_Tapped (object sender, MR.Gestures.TapEventArgs e)
 		{
 			leftRedCount++;
 			leftRedLabel.Text = string.Format ("{0}", leftRedCount);
-			await FlashFrameColor ((Frame)sender, true);
+			await FlashFrameColor ((Frame)sender, Color.Red);
 		}
 
 		async Task LeftRedFrameDoubleTapped (object sender, MR.Gestures.TapEventArgs e)
@@ -81,14 +81,14 @@ namespace EnGarde
 				leftRedCount--;
 			}
 			leftRedLabel.Text = string.Format ("{0}", leftRedCount);
-			await FlashFrameColor ((Frame)sender, true);
+			await FlashFrameColor ((Frame)sender, Color.Red, false);
 		}
 
 		async Task LeftBlackFrame_Tapped (object sender, MR.Gestures.TapEventArgs e)
 		{
 			leftBlackCount++;
 			leftBlackLabel.Text = string.Format ("{0}", leftBlackCount);
-			await FlashFrameColor ((Frame)sender, true);
+			await FlashFrameColor ((Frame)sender, Color.Black);
 		}
 
 		async Task LeftBlackFrameDoubletapped (object sender, MR.Gestures.TapEventArgs e)
@@ -97,7 +97,7 @@ namespace EnGarde
 				leftBlackCount--;
 			}
 			leftBlackLabel.Text = string.Format ("{0}", leftBlackCount);
-			await FlashFrameColor ((Frame)sender, true);
+			await FlashFrameColor ((Frame)sender, Color.Black, false);
 
 		}
 
@@ -105,7 +105,7 @@ namespace EnGarde
 		{
 			rightYellowCount++;
 			rightYellowLabel.Text = string.Format ("{0}", rightYellowCount);
-			await FlashFrameColor ((Frame)sender, false);
+			await FlashFrameColor ((Frame)sender, Color.Yellow);
 
 		}
 		async Task RightYellowFrameDoubleTapped (object sender, MR.Gestures.TapEventArgs e)
@@ -114,7 +114,7 @@ namespace EnGarde
 				rightYellowCount--;
 			}
 			rightYellowLabel.Text = string.Format ("{0}", rightYellowCount);
-			await FlashFrameColor ((Frame)sender, true);
+			await FlashFrameColor ((Frame)sender, Color.Yellow, false);
 
 		}
 
@@ -123,7 +123,7 @@ namespace EnGarde
 
 			rightRedCount++;
 			rightRedLabel.Text = string.Format ("{0}", rightRedCount);
-			await FlashFrameColor ((Frame)sender, false);
+			await FlashFrameColor ((Frame)sender, Color.Red);
 		}
 
 		async Task RightRedFrameDoubleTapped (object sender, MR.Gestures.TapEventArgs e)
@@ -132,7 +132,7 @@ namespace EnGarde
 				rightRedCount--;
 			}
 			rightRedLabel.Text = string.Format ("{0}", rightRedCount);
-			await FlashFrameColor ((Frame)sender, false);
+			await FlashFrameColor ((Frame)sender, Color.Red, false);
 		}
 
 
@@ -141,7 +141,7 @@ namespace EnGarde
 		{
 			rightBlackCount++;
 			rightBlackLabel.Text = string.Format ("{0}", rightBlackCount);
-			await FlashFrameColor ((Frame)sender, false);
+			await FlashFrameColor ((Frame)sender, Color.Black);
 
 		}
 
@@ -151,21 +151,18 @@ namespace EnGarde
 				rightBlackCount--;
 			}
 			rightBlackLabel.Text = string.Format ("{0}", rightBlackCount);
-			await FlashFrameColor ((Frame)sender, false);
+			await FlashFrameColor ((Frame)sender, Color.Black, false);
 
 		}
 
 
-		private async Task FlashFrameColor (Frame frame, bool isRed)
+		private async Task FlashFrameColor (Frame frame, Color c, bool showColor = true)
 		{
-			//var c = Color.Lime;
-			//if (isRed) {
-			//	c = Color.FromHex ("#FF0000");
-			//}
-			//frame.BackgroundColor = c;
 			frame.Opacity = 0.1;
 			await frame.FadeTo (1, 250);
-			//frame.BackgroundColor = Color.Transparent;
+			if (showColor) {
+				await Navigation.PushModalAsync (new ShowCardPage (c));
+			}
 		}
 	}
 }

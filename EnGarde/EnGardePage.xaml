@@ -55,14 +55,14 @@
 					HorizontalOptions="CenterAndExpand"
 					VerticalOptions="Center">
 				</mr:Label>
-				<Label
+				<mr:Label
 					x:Name="periodLabel"
 					Text="Period 1"
 					FontSize="Small"
 					TextColor="White"
 					HorizontalOptions="CenterAndExpand"
 					VerticalOptions="Center">
-				</Label>
+				</mr:Label>
 			</StackLayout>
 			<Button
 				x:Name="resetButton"

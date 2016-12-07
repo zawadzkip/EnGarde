@@ -33,8 +33,18 @@ namespace EnGarde
 		void UpdateTimePressed (object sender, EventArgs e)
 		{
 			try {
-				var minute = Int32.Parse (minuteEntry.Text);
-				var second = Int32.Parse (secondEntry.Text);
+				int minute = 0;
+				int second = 0;
+				if (minuteEntry.Text.Length == 0) {
+					minute = 0;
+				} else {
+					minute = Int32.Parse (minuteEntry.Text);
+				}
+				if (secondEntry.Text.Length == 0) {
+					second = 0;
+				} else {
+					second = Int32.Parse (secondEntry.Text);
+				}
 				if (minute > 3) {
 					ResetText ();
 					DisplayAlert ("Error", "Cannot have more than 3 minutes", "Ok");

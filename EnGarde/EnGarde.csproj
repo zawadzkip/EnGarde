@@ -38,6 +38,9 @@
     <EmbeddedResource Include="RulebookPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="ShowCardPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -60,6 +63,10 @@
     <Compile Include="CustomViews\CustomWebView.cs" />
     <Compile Include="Services\ISaveAndLoad.cs" />
     <Compile Include="ImageButton.cs" />
+    <Compile Include="ShowCardPage.xaml.cs">
+      <DependentUpon>ShowCardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\INotify.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MR.Gestures">

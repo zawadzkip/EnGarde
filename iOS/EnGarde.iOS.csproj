@@ -151,6 +151,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="CustomWebViewRenderer.cs" />
     <Compile Include="SaveAndLoad_iOS.cs" />
+    <Compile Include="Notify_iOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\fencing_rules.pdf" />
